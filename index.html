@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyncTask - Professional Manager</title>
+    <link rel="stylesheet" href="app.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <select id="langSelect" onchange="window.changeLanguage(this.value)">
+        <option value="uz">O'zbekcha</option>
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+      </select>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+      <div id="progressContainer" style="display: none; margin-bottom: 25px">
+        <div class="progress-info">
+          <span id="progressText">Bugungi samaradorlik</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progressBar"></div>
+        </div>
+      </div>
+
+      <div id="authSection" class="auth-card">
+        <div id="loginContent">
+          <h1>Xush kelibsiz</h1>
+          <p>Rejalaringizni tartibga soling va dunyo bilan ulashing.</p>
+          <button id="loginBtn" class="google-btn">
+            <img
+              src="img/icons8-google-48 (1).png"
+              alt="G"
+              class="my-custom-icon"
+            />
+            Google orqali kirish
+          </button>
+        </div>
+
+        <div id="userInfo" style="display: none">
+          <div class="user-profile">
+            <img id="userImg" src="" alt="User" />
+            <div class="user-text">
+              <span id="userName"></span>
+            </div>
+          </div>
+          <button id="logoutBtn" class="logout-link">Tizimdan chiqish</button>
+        </div>
+      </div>
+
+      <div id="appSection" style="display: none">
+        <div class="filter-tabs">
+          <button id="myTasksTab" class="active" onclick="changeView('my')">
+            👤 Mening rejalarim
+          </button>
+          <button id="publicTasksTab" onclick="changeView('public')">
+            🌍 Ommaviy devor
+          </button>
+        </div>
+
+        <div class="main-card">
+          <div class="input-group">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Nima reja qilyapsiz?"
+            />
+
+            <div class="selectors">
+              <input type="datetime-local" id="taskDeadline" />
+
+              <select id="taskCategory">
+                <option value="💡 Umumiy" selected>💡 Umumiy</option>
+                <option value="💼 Ish">💼 Ish</option>
+                <option value="🎓 O'qish">🎓 O'qish</option>
+                <option value="🏠 Shaxsiy">🏠 Shaxsiy</option>
+                <option value="🎯 Sport">🎯 Sport</option>
+              </select>
+
+              <select id="taskPriority">
+                <option value="low">🟢 Past</option>
+                <option value="medium" selected>🟡 O'rtacha</option>
+                <option value="high">🔴 Yuqori</option>
+              </select>
+
+              <select id="taskVisibility">
+                <option value="private">🔒 Shaxsiy</option>
+                <option value="public">🌍 Ommaviy</option>
+              </select>
+            </div>
+
+            <button id="addBtn">Qo'shish</button>
+          </div>
+
+          <ul id="taskList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
